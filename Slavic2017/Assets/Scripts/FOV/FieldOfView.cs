@@ -6,19 +6,13 @@ namespace FOV
 {
     public abstract class FieldOfView : MonoBehaviour
     {
-        [SerializeField]
-        protected LayerMask obstacleMask;
-        [SerializeField]
-        protected LayerMask targetMask;
+        [SerializeField] protected LayerMask ObstacleMask;
+        [SerializeField] protected LayerMask TargetMask;
 
-        [SerializeField]
-        private float coroutineDelay = 0.4f;
+        [SerializeField] private float coroutineDelay = 0.4f;
 
-        [SerializeField]
-        [Range(0, 360)]
-        public float viewAngle;
-        [SerializeField]
-        public float viewRadius;
+        [SerializeField] [Range(0, 360)] public float ViewAngle;
+        [SerializeField] public float ViewRadius;
 
         public List<GameObject> VisibleObjects { get; private set; }
 
@@ -30,12 +24,12 @@ namespace FOV
 
         public void StartDetectingCoroutine()
         {
-            StartCoroutine("FindObjetsWithDelay", coroutineDelay); //detecting targets with float delay
+            StartCoroutine("FindObjectsWithDelay", coroutineDelay); //detecting targets with float delay
         }
 
         protected abstract void Awake();
 
-        private IEnumerator FindObjetsWithDelay(float delay)
+        private IEnumerator FindObjectsWithDelay(float delay)
         {
             while (true)
             {
@@ -48,7 +42,7 @@ namespace FOV
         private void FindVisibleObjects()
         {
             VisibleObjects.Clear();
-            var targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+            var targetsInViewRadius = Physics.OverlapSphere(transform.position, ViewRadius, TargetMask);
 
             //foreach (var target in targetsInViewRadius)
             //{
@@ -60,15 +54,14 @@ namespace FOV
                 var target = collider.gameObject;
                 var dirToTarget = (target.transform.position - transform.position).normalized;
                 //dirToTarget.y = 0;
-                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2) //if target in field of view
+                if (Vector3.Angle(transform.forward, dirToTarget) < ViewAngle / 2) //if target in field of view
                 {
                     var dstToTarget = Vector3.Distance(transform.position, target.transform.position);
-                    if (Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)) continue;
+                    if (Physics.Raycast(transform.position, dirToTarget, dstToTarget, ObstacleMask)) continue;
                     //Debug.Log(gameObject.name + ": " + target.gameObject.name + " spotted.");
                     VisibleObjects.Add(target);
                 }
             }
-
         }
 
         protected abstract void TakeActionOnVisibleObjects();
@@ -77,7 +70,8 @@ namespace FOV
         {
             if (!angleIsGlobal)
                 angleInDegrees += transform.eulerAngles.y;
-            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0.0f, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+            return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0.0f,
+                Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
         }
-    } 
+    }
 }
