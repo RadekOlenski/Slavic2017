@@ -29,6 +29,11 @@ namespace FOV
             DrawFieldOfView(viewMesh, ViewRadius, ViewAngle);
         }
 
+        private void OnDisable()
+        {
+            RemoveFieldOfView();
+        }
+
         #endregion
 
         protected override void TakeActionOnVisibleObjects()

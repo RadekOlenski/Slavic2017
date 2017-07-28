@@ -40,11 +40,11 @@ GameObject:
   - component: {fileID: 95009205330291474}
   m_Layer: 12
   m_Name: FOV
-  m_TagString: Untagged
+  m_TagString: PlayerFOV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1357112768418158
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1244943519183588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -226,9 +226,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   coroutineDelay: 0.4
-  ViewAngle: 0
-  ViewRadius: 60
+  ViewAngle: 60
+  ViewRadius: 10
   meshResolution: 10
-  edgeDistanceThreshold: 1
-  edgeResolveIterations: 1
+  edgeDistanceThreshold: 10
+  edgeResolveIterations: 10
   viewMeshFilterBasic: {fileID: 33299658736054116}
