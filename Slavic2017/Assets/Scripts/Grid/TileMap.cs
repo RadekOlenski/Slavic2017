@@ -256,7 +256,10 @@ namespace Grid
             if (prev[target] == null)
             {
                 // No route between our target and the source
-                SelectedUnit.GetComponent<Unit>().ActionPoints = 0;
+                if (SelectedUnit.CompareTag(TagsEnum.Enemy))
+                {
+                    SelectedUnit.GetComponent<Unit>().ActionPoints = 0;
+                }
                 return;
             }
 
