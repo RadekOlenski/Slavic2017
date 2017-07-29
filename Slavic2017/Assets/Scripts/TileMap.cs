@@ -20,7 +20,7 @@ public class TileMap : MonoBehaviour
     {
         // Setup the selectedUnit's variable
         selectedUnit.GetComponent<Unit>().tileX = (int)selectedUnit.transform.position.x;
-        selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.y;
+        selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.z;
         selectedUnit.GetComponent<Unit>().map = this;
 
         GenerateMapData();
@@ -158,7 +158,7 @@ public class TileMap : MonoBehaviour
             for (int y = 0; y < mapSizeY; y++)
             {
                 TileType tt = tileTypes[tiles[x, y]];
-                GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, 0, y), Quaternion.identity);
 
                 ClickableTile ct = go.GetComponent<ClickableTile>();
                 ct.tileX = x;
@@ -170,7 +170,7 @@ public class TileMap : MonoBehaviour
 
     public Vector3 TileCoordToWorldCoord(int x, int y)
     {
-        return new Vector3(x, y, 0);
+        return new Vector3(x, 0, y);
     }
 
     public bool UnitCanEnterTile(int x, int y)
