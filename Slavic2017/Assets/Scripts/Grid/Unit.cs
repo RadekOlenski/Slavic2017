@@ -35,7 +35,13 @@ public class Unit : MonoBehaviour
                 MoveNextTile();
 
             // Smoothly animate towards the correct map tile.
-            transform.position = Vector3.Lerp(transform.position, new Vector3(tileX, transform.position.y, tileY), 5f * Time.deltaTime);
+            var target = new Vector3(tileX, transform.position.y, tileY);
+            transform.position = Vector3.MoveTowards(transform.position, target, 3f * Time.deltaTime);
+            Vector3 targetDir = target - transform.position;
+            float step = 3f * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            transform.rotation = Quaternion.LookRotation(newDir);
         }
         if (ActionPoints <= 0 && gameObject.CompareTag(TagsEnum.Player))
         {
