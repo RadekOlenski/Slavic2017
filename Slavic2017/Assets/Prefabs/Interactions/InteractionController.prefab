@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114499796883895412}
   m_Layer: 0
   m_Name: InteractionController
-  m_TagString: Untagged
+  m_TagString: InteractionController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
   MouseTargetLayer:
     serializedVersion: 2
     m_Bits: 256
+  FlashlightUseCost: 2
 --- !u!114 &114441002724544944
 MonoBehaviour:
   m_ObjectHideFlags: 1

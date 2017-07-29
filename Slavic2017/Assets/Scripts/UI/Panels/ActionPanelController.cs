@@ -1,15 +1,11 @@
 ﻿using Enums;
-using Events;
-using Interactions;
 using Managers;
 using UnityEngine;
 
-namespace UI.Buttons
+namespace UI.Panels
 {
-    public class FlashlightButton : MonoBehaviour
+    public class ActionPanelController : MonoBehaviour
     {
-        #region Unity Methods
-
         // Use this for initialization
         void Start()
         {
@@ -23,16 +19,5 @@ namespace UI.Buttons
                 gameObject.SetActive(false);
             }
         }
-
-        #endregion
-
-        #region Click Methods
-
-        public void EnableFlashlightMode()
-        {
-            EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(true));
-        }
-
-        #endregion
     }
 }

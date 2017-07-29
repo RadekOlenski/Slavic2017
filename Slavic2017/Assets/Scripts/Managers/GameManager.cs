@@ -22,6 +22,8 @@ namespace Managers
 
         private EventManager eventManager;
 
+        private bool gameEnded;
+
         #region Constructor
 
         void Start()
@@ -69,9 +71,14 @@ namespace Managers
 
         private void EndGame(GameOverEvent e)
         {
+            if (gameEnded) return;
             LastLoadedLevel = new LoadedLevelInfo();
             LastLoadedLevel.SceneIndex = SceneManager.GetActiveScene().buildIndex;
             LastLoadedLevel.SceneName = SceneManager.GetActiveScene().name;
+
+            eventManager.InvokeEvent(new ChangeGameStateEvent(GameState.GameOver));
+
+            gameEnded = true;
         }
 
         private void QuitGame(QuitGameEvent e)

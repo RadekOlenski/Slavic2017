@@ -4,6 +4,7 @@
     {
         EasyTerrain,
         HeavyTerrain,
-        Unwalkable
+        Unwalkable,
+        Exit
     }
 }

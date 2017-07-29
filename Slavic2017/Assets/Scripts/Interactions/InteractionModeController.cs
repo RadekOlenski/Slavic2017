@@ -1,4 +1,5 @@
 ﻿using System;
+using Enums;
 using Events;
 using Managers;
 using UnityEngine;
@@ -54,6 +55,10 @@ namespace Interactions
             if (Input.GetMouseButtonDown((int) MouseButton.RightMouse))
             {
                 DisableInteractionModes();
+            }
+            if (GameManager.Instance.CurrentGameState == GameState.GameOver)
+            {
+                gameObject.SetActive(false);
             }
         }
 
