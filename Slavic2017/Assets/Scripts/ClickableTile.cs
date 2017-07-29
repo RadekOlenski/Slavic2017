@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ClickableTile : MonoBehaviour
 {
@@ -9,8 +10,7 @@ public class ClickableTile : MonoBehaviour
     void OnMouseUp()
     {
         Debug.Log("Click!");
-
-        map.MoveSelectedUnitTo(tileX, tileY);
+        map.GeneratePathTo(tileX, tileY);
     }
 
 }
