@@ -659,9 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45e1194114f4fc4ca03effa0efc604b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileY: 0
   map: {fileID: 1063695328}
+  ActionPoints: 4
 --- !u!1 &2104803707
 GameObject:
   m_ObjectHideFlags: 0

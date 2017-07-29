@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 public class Unit : MonoBehaviour
 {
-
+    [System.NonSerialized]
     public int tileX;
+    [System.NonSerialized]
     public int tileY;
+    [System.NonSerialized]
+    public List<Node> currentPath = null;
     public TileMap map;
 
-    public List<Node> currentPath = null;
-
-    int moveSpeed = 2;
+    public int ActionPoints = 4;
 
     void Update()
     {
         if (currentPath != null)
         {
-
             int currNode = 0;
 
             while (currNode < currentPath.Count - 1)
@@ -37,7 +37,7 @@ public class Unit : MonoBehaviour
 
     public void MoveNextTile()
     {
-        float remainingMovement = moveSpeed;
+        float remainingMovement = ActionPoints;
 
         while (remainingMovement > 0)
         {
@@ -64,6 +64,7 @@ public class Unit : MonoBehaviour
                 currentPath = null;
             }
         }
-
+        // reset path - no multi-turned movement
+        currentPath = null;
     }
 }

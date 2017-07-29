@@ -196,16 +196,10 @@ public class TileMap : MonoBehaviour
 
         // Setup the "Q" -- the list of nodes we haven't checked yet.
         List<Node> unvisited = new List<Node>();
+        
+        Node source = graph[SelectedUnit.GetComponent<Unit>().tileX,SelectedUnit.GetComponent<Unit>().tileY];
 
-        Node source = graph[
-            SelectedUnit.GetComponent<Unit>().tileX,
-            SelectedUnit.GetComponent<Unit>().tileY
-        ];
-
-        Node target = graph[
-            x,
-            y
-        ];
+        Node target = graph[x,y];
 
         dist[source] = 0;
         prev[source] = null;
@@ -282,7 +276,18 @@ public class TileMap : MonoBehaviour
 
         currentPath.Reverse();
 
-        SelectedUnit.GetComponent<Unit>().currentPath = currentPath;
+        var unit = SelectedUnit.GetComponent<Unit>();
+        //unit.currentPath = currentPath;
+        unit.currentPath = unit.ActionPoints < CalculateTotalPathCost(currentPath) ? null : currentPath;
     }
 
+    private float CalculateTotalPathCost(List<Node> currentPath)
+    {
+        float totalCost = 0;
+        for (int i = 0; i < currentPath.Count - 1; i++)
+        {
+            totalCost += CostToEnterTile(currentPath[i].x, currentPath[i].y, currentPath[i+1].x, currentPath[i+1].y);
+        }
+        return totalCost;
+    }
 }
