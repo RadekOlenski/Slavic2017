@@ -60,19 +60,29 @@ MonoBehaviour:
     tileVisualPrefab: {fileID: 1230162586874052, guid: 5dd37adcd458d654f85d7dc2dcfff676,
       type: 2}
     isWalkable: 1
+    BlockMonsters: 0
     movementCost: 1
   - name: Mud
     tileVisualPrefab: {fileID: 1695459187263428, guid: f2bf2dd5210db3e43a3c7806aefdadb2,
       type: 2}
     isWalkable: 1
+    BlockMonsters: 0
     movementCost: 2
   - name: Rock
     tileVisualPrefab: {fileID: 1874997037337218, guid: 71c1a338f7f373e4cb620ab2eff1527a,
       type: 2}
     isWalkable: 0
+    BlockMonsters: 0
     movementCost: 1
   - name: Exit
     tileVisualPrefab: {fileID: 1874997037337218, guid: 71c1a338f7f373e4cb620ab2eff1527a,
       type: 2}
     isWalkable: 1
+    BlockMonsters: 0
+    movementCost: 1
+  - name: MonsterBlocked
+    tileVisualPrefab: {fileID: 1874997037337218, guid: 71c1a338f7f373e4cb620ab2eff1527a,
+      type: 2}
+    isWalkable: 1
+    BlockMonsters: 1
     movementCost: 1
