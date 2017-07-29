@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Grid;
 
 public class TileMap : MonoBehaviour
 {
     public int MapSizeX = 15;
     public int MapSizeY = 10;
+
+    public GridController GridController;
 
     public GameObject SelectedUnit;
 
@@ -16,12 +19,16 @@ public class TileMap : MonoBehaviour
 
     void Start()
     {
+        MapSizeX = GridController.GridColumnsCount;
+        MapSizeY = GridController.GridRowsCount;
+        tiles = GridController.Tiles;
+
         // Setup the SelectedUnit's variable
         SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
         SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
         SelectedUnit.GetComponent<Unit>().map = this;
 
-        GenerateMapData();
+        //GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisual();
     }

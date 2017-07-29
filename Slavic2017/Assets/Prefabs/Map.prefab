@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapSizeX: 15
   MapSizeY: 10
+  GridController: {fileID: 0}
   SelectedUnit: {fileID: 0}
   tileTypes:
   - name: Grass
