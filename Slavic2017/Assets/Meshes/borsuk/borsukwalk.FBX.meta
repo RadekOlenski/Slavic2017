@@ -1,0 +1,172 @@
+fileFormatVersion: 2
+guid: ee35507acdc9e214dbc2f6c6e547d732
+timeCreated: 1501362813
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Horse
+    100004: HorseFrontRLegFrontHoof
+    100006: HorseFrontRLegHumerus
+    100008: HorseFrontRLegMetacarpus
+    100010: HorseFrontRLegPhalangesManus
+    100012: HorseFrontRLegPlatform
+    100014: HorseFrontRLegRadius
+    100016: HorseFrontRLegScapula
+    100018: HorseJaw
+    100020: HorseLFemur
+    100022: HorseLFrontHoof
+    100024: HorseLHumerus
+    100026: HorseLLargeCannon
+    100028: HorseLMetacarpus
+    100030: HorseLPhalangesManus
+    100032: HorseLPhalanxPrima
+    100034: HorseLPlatform
+    100036: HorseLPlatform 1
+    100038: HorseLRadius
+    100040: HorseLRearHoof
+    100042: HorseLScapula
+    100044: HorseLTibia
+    100046: HorseNeck
+    100048: HorsePelvis
+    100050: HorseRFemur
+    100052: HorseRibcage
+    100054: HorseRLargeCannon
+    100056: HorseRPhalanxPrima
+    100058: HorseRPlatform
+    100060: HorseRRearHoof
+    100062: HorseRTibia
+    100064: HorseScull
+    100066: HorseSpine1
+    100068: HorseSpine2
+    100070: HorseSpine3
+    100072: HorseSpine4
+    100074: HorseSpine5
+    100076: HorseSpine6
+    100078: HorseTail1
+    100080: HorseTail2
+    100082: HorseTail3
+    100084: wilk
+    400000: //RootNode
+    400002: Horse
+    400004: HorseFrontRLegFrontHoof
+    400006: HorseFrontRLegHumerus
+    400008: HorseFrontRLegMetacarpus
+    400010: HorseFrontRLegPhalangesManus
+    400012: HorseFrontRLegPlatform
+    400014: HorseFrontRLegRadius
+    400016: HorseFrontRLegScapula
+    400018: HorseJaw
+    400020: HorseLFemur
+    400022: HorseLFrontHoof
+    400024: HorseLHumerus
+    400026: HorseLLargeCannon
+    400028: HorseLMetacarpus
+    400030: HorseLPhalangesManus
+    400032: HorseLPhalanxPrima
+    400034: HorseLPlatform
+    400036: HorseLPlatform 1
+    400038: HorseLRadius
+    400040: HorseLRearHoof
+    400042: HorseLScapula
+    400044: HorseLTibia
+    400046: HorseNeck
+    400048: HorsePelvis
+    400050: HorseRFemur
+    400052: HorseRibcage
+    400054: HorseRLargeCannon
+    400056: HorseRPhalanxPrima
+    400058: HorseRPlatform
+    400060: HorseRRearHoof
+    400062: HorseRTibia
+    400064: HorseScull
+    400066: HorseSpine1
+    400068: HorseSpine2
+    400070: HorseSpine3
+    400072: HorseSpine4
+    400074: HorseSpine5
+    400076: HorseSpine6
+    400078: HorseTail1
+    400080: HorseTail2
+    400082: HorseTail3
+    400084: wilk
+    4300000: wilk
+    7400000: walk
+    9500000: //RootNode
+    13700000: wilk
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
