@@ -278,7 +278,7 @@ public class TileMap : MonoBehaviour
 
         var unit = SelectedUnit.GetComponent<Unit>();
         //unit.currentPath = currentPath;
-        unit.currentPath = unit.ActionPoints < CalculateTotalPathCost(currentPath) ? null : currentPath;
+        unit.currentPath = unit.ActionPoints + .1f < CalculateTotalPathCost(currentPath) ? null : currentPath;
     }
 
     private float CalculateTotalPathCost(List<Node> currentPath)

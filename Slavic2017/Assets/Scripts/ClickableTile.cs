@@ -14,10 +14,16 @@ public class ClickableTile : MonoBehaviour
         playerUnit = GameObject.FindGameObjectWithTag(TagsEnum.PlayerTag).GetComponent<Unit>();
     }
 
+    void OnMouseEnter()
+    {
+        Debug.Log(gameObject.name + " Enter!");
+        map.GeneratePathTo(tileX, tileY);
+    }
+
     void OnMouseUp()
     {
         Debug.Log("Click!");
-        map.GeneratePathTo(tileX, tileY);
+        //map.GeneratePathTo(tileX, tileY);
         playerUnit.MoveNextTile();
     }
 
