@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Events;
+using Grid;
+using Managers;
 
 public class Unit : MonoBehaviour
 {
@@ -35,7 +38,11 @@ public class Unit : MonoBehaviour
             // Smoothly animate towards the correct map tile.
             transform.position = Vector3.Lerp(transform.position, new Vector3(tileX, transform.position.y, tileY), 5f * Time.deltaTime);
         }
-
+        if (ActionPoints <= 0)
+        {
+            EventManager.Instance.InvokeEvent(new InteractionEvents.EnableMovementModeEvent(false));
+            EventManager.Instance.InvokeEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
+        }
     }
 
     public void MoveNextTile()

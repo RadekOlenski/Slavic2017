@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Grid;
+using UnityEngine;
 
 namespace Interactions
 {
     public class MovementModeController : MonoBehaviour
     {
+        public TileMap TileMap;
+
         // Use this for initialization
         void Start()
         {
@@ -15,6 +18,14 @@ namespace Interactions
         {
         }
 
+        private void OnEnable()
+        {
+            TileMap.enabled = true;
+        }
 
+        private void OnDisable()
+        {
+            TileMap.enabled = false;
+        }
     }
 }

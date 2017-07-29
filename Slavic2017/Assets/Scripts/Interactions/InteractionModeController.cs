@@ -11,6 +11,8 @@ namespace Interactions
         [SerializeField] private FlashlightModeController flashlightModeController;
         [SerializeField] private MovementModeController movementModeController;
 
+        public Unit PlayerUnit;
+
         #region Properties
 
         [NonSerialized] private bool flashlightModeEnabled;
@@ -52,7 +54,6 @@ namespace Interactions
             if (Input.GetMouseButtonDown((int) MouseButton.RightMouse))
             {
                 DisableInteractionModes();
-
             }
         }
 
@@ -71,11 +72,13 @@ namespace Interactions
 
         private void HandleFlashlightMode(InteractionEvents.EnableFlashlightModeEvent e)
         {
+            if (PlayerUnit.ActionPoints <= 0 && e.FlashlightModeEnabled) return;
             FlashlightModeEnabled = e.FlashlightModeEnabled;
         }
 
         private void HandleMovementMode(InteractionEvents.EnableMovementModeEvent e)
         {
+            if (PlayerUnit.ActionPoints <= 0 && e.MovementModeEnabled) return;
             MovementModeEnabled = e.MovementModeEnabled;
         }
 
