@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4696565330766356}
-  - component: {fileID: 111302594681322668}
+  - component: {fileID: 95842119781151134}
   m_Layer: 0
   m_Name: trawa1idle
   m_TagString: Untagged
@@ -302,20 +302,23 @@ Transform:
   m_Father: {fileID: 4696565330766356}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &111302594681322668
-Animation:
+--- !u!95 &95842119781151134
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1126264956546804}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4200b0ffc84b07c4f9b318ea085e6516, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: da94c8aaca7d25c4cbaea48ed8532fa2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!137 &137924052225139796
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

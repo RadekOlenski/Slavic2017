@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4829375300720958}
-  - component: {fileID: 111114413585840886}
+  - component: {fileID: 95233907806660958}
   m_Layer: 0
   m_Name: paprotkaidle
   m_TagString: Untagged
@@ -563,20 +563,23 @@ Transform:
   m_Father: {fileID: 4211609743376510}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &111114413585840886
-Animation:
+--- !u!95 &95233907806660958
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712580097341700}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d5b46736a4de38b4a84486c4dc94f2e6, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 98587ab391c3f4a4da84fad63a20f094, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!137 &137736701207504336
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d274576250f1b8b488dd2b7936b40ded
-timeCreated: 1501357019
+timeCreated: 1501363753
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -68,7 +68,6 @@ ModelImporter:
     4300000: Cylinder004
     7400000: GirlIdle
     7400002: GirlWalk
-    7400004: GirlWalk (1)
     9500000: //RootNode
     13700000: Cylinder004
   materials:
@@ -87,7 +86,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -134,7 +133,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -174,8 +173,8 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 2
-    tangentImportMode: 2
+    normalImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
@@ -190,10 +189,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Base HumanPelvis
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
