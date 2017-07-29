@@ -32,7 +32,7 @@ namespace Interactions
 
         public bool MovementModeEnabled
         {
-            get { return flashlightModeEnabled; }
+            get { return movementModeEnabled; }
             set
             {
                 movementModeEnabled = value;
@@ -47,8 +47,6 @@ namespace Interactions
         {
             EventManager.Instance.AddListener<InteractionEvents.EnableFlashlightModeEvent>(HandleFlashlightMode);
             EventManager.Instance.AddListener<InteractionEvents.EnableMovementModeEvent>(HandleMovementMode);
-
-            movementModeEnabled = true;
         }
 
         // Update is called once per frame
