@@ -271,74 +271,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &353698367
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 353698368}
-  - component: {fileID: 353698370}
-  - component: {fileID: 353698369}
-  m_Layer: 0
-  m_Name: GameOverPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &353698368
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353698367}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 851785562}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.2, y: 53.1}
-  m_SizeDelta: {x: -1202.2, y: -519.1}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &353698369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353698367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.559}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &353698370
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353698367}
 --- !u!1001 &419195794
 Prefab:
   m_ObjectHideFlags: 0
@@ -572,12 +504,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1896456515}
+    - target: {fileID: 1500551606403424, guid: 0d59a95066464474d98d14dbc129125c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d59a95066464474d98d14dbc129125c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &851785560 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1013491350596940, guid: 0d59a95066464474d98d14dbc129125c,
+  m_PrefabParentObject: {fileID: 1703285739138794, guid: 0d59a95066464474d98d14dbc129125c,
     type: 2}
   m_PrefabInternal: {fileID: 851785559}
 --- !u!114 &851785561
@@ -588,31 +524,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 851785560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7662cc275bece4385bef0ad46bc70a, type: 3}
+  m_Script: {fileID: 11500000, guid: acdc0ae8e9698c748b0993d03e5ad383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &851785562 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224855239265780784, guid: 0d59a95066464474d98d14dbc129125c,
-    type: 2}
-  m_PrefabInternal: {fileID: 851785559}
---- !u!1 &851785563 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1364920384325926, guid: 0d59a95066464474d98d14dbc129125c,
-    type: 2}
-  m_PrefabInternal: {fileID: 851785559}
---- !u!114 &851785564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 851785563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba026a2047a644843940de73aa37c366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 353698367}
 --- !u!114 &1063695328 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114788533262689110, guid: 6cfab066ea83c1b44a15eef5afa4eb9c,
