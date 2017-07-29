@@ -4,24 +4,22 @@ using System.Linq;
 
 public class TileMap : MonoBehaviour
 {
+    public int MapSizeX = 15;
+    public int MapSizeY = 10;
 
-    public GameObject selectedUnit;
+    public GameObject SelectedUnit;
 
     public TileType[] tileTypes;
 
     int[,] tiles;
     Node[,] graph;
 
-
-    public int mapSizeX = 15;
-    public int mapSizeY = 10;
-
     void Start()
     {
-        // Setup the selectedUnit's variable
-        selectedUnit.GetComponent<Unit>().tileX = (int)selectedUnit.transform.position.x;
-        selectedUnit.GetComponent<Unit>().tileY = (int)selectedUnit.transform.position.z;
-        selectedUnit.GetComponent<Unit>().map = this;
+        // Setup the SelectedUnit's variable
+        SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
+        SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
+        SelectedUnit.GetComponent<Unit>().map = this;
 
         GenerateMapData();
         GeneratePathfindingGraph();
@@ -31,14 +29,14 @@ public class TileMap : MonoBehaviour
     void GenerateMapData()
     {
         // Allocate our map tiles
-        tiles = new int[mapSizeX, mapSizeY];
+        tiles = new int[MapSizeX, MapSizeY];
 
         int x, y;
 
         // Initialize our map tiles to be grass
-        for (x = 0; x < mapSizeX; x++)
+        for (x = 0; x < MapSizeX; x++)
         {
-            for (y = 0; y < mapSizeY; y++)
+            for (y = 0; y < MapSizeY; y++)
             {
                 tiles[x, y] = 0;
             }
@@ -89,12 +87,12 @@ public class TileMap : MonoBehaviour
     void GeneratePathfindingGraph()
     {
         // Initialize the array
-        graph = new Node[mapSizeX, mapSizeY];
+        graph = new Node[MapSizeX, MapSizeY];
 
         // Initialize a Node for each spot in the array
-        for (int x = 0; x < mapSizeX; x++)
+        for (int x = 0; x < MapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeY; y++)
+            for (int y = 0; y < MapSizeY; y++)
             {
                 graph[x, y] = new Node();
                 graph[x, y].x = x;
@@ -103,19 +101,19 @@ public class TileMap : MonoBehaviour
         }
 
         // Now that all the nodes exist, calculate their neighbours
-        for (int x = 0; x < mapSizeX; x++)
+        for (int x = 0; x < MapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeY; y++)
+            for (int y = 0; y < MapSizeY; y++)
             {
 
                 // This is the 4-way connection version:
                 /*				if(x > 0)
                                     graph[x,y].neighbours.Add( graph[x-1, y] );
-                                if(x < mapSizeX-1)
+                                if(x < MapSizeX-1)
                                     graph[x,y].neighbours.Add( graph[x+1, y] );
                                 if(y > 0)
                                     graph[x,y].neighbours.Add( graph[x, y-1] );
-                                if(y < mapSizeY-1)
+                                if(y < MapSizeY-1)
                                     graph[x,y].neighbours.Add( graph[x, y+1] );
                 */
 
@@ -126,24 +124,24 @@ public class TileMap : MonoBehaviour
                     graph[x, y].neighbours.Add(graph[x - 1, y]);
                     if (y > 0)
                         graph[x, y].neighbours.Add(graph[x - 1, y - 1]);
-                    if (y < mapSizeY - 1)
+                    if (y < MapSizeY - 1)
                         graph[x, y].neighbours.Add(graph[x - 1, y + 1]);
                 }
 
                 // Try Right
-                if (x < mapSizeX - 1)
+                if (x < MapSizeX - 1)
                 {
                     graph[x, y].neighbours.Add(graph[x + 1, y]);
                     if (y > 0)
                         graph[x, y].neighbours.Add(graph[x + 1, y - 1]);
-                    if (y < mapSizeY - 1)
+                    if (y < MapSizeY - 1)
                         graph[x, y].neighbours.Add(graph[x + 1, y + 1]);
                 }
 
                 // Try straight up and down
                 if (y > 0)
                     graph[x, y].neighbours.Add(graph[x, y - 1]);
-                if (y < mapSizeY - 1)
+                if (y < MapSizeY - 1)
                     graph[x, y].neighbours.Add(graph[x, y + 1]);
 
                 // This also works with 6-way hexes and n-way variable areas (like EU4)
@@ -153,9 +151,9 @@ public class TileMap : MonoBehaviour
 
     void GenerateMapVisual()
     {
-        for (int x = 0; x < mapSizeX; x++)
+        for (int x = 0; x < MapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeY; y++)
+            for (int y = 0; y < MapSizeY; y++)
             {
                 TileType tt = tileTypes[tiles[x, y]];
                 GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, 0, y), Quaternion.identity);
@@ -185,7 +183,7 @@ public class TileMap : MonoBehaviour
     public void GeneratePathTo(int x, int y)
     {
         // Clear out our unit's old path.
-        selectedUnit.GetComponent<Unit>().currentPath = null;
+        SelectedUnit.GetComponent<Unit>().currentPath = null;
 
         if (UnitCanEnterTile(x, y) == false)
         {
@@ -200,8 +198,8 @@ public class TileMap : MonoBehaviour
         List<Node> unvisited = new List<Node>();
 
         Node source = graph[
-            selectedUnit.GetComponent<Unit>().tileX,
-            selectedUnit.GetComponent<Unit>().tileY
+            SelectedUnit.GetComponent<Unit>().tileX,
+            SelectedUnit.GetComponent<Unit>().tileY
         ];
 
         Node target = graph[
@@ -284,7 +282,7 @@ public class TileMap : MonoBehaviour
 
         currentPath.Reverse();
 
-        selectedUnit.GetComponent<Unit>().currentPath = currentPath;
+        SelectedUnit.GetComponent<Unit>().currentPath = currentPath;
     }
 
 }
