@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Enums;
 using Events;
 using Grid;
 using Managers;
@@ -24,10 +25,6 @@ public class Unit : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            RestoreActionPoints();
-        }
         if (isMoving)
         {
             // Have we moved our visible piece close enough to the target tile that we can
@@ -38,7 +35,7 @@ public class Unit : MonoBehaviour
             // Smoothly animate towards the correct map tile.
             transform.position = Vector3.Lerp(transform.position, new Vector3(tileX, transform.position.y, tileY), 5f * Time.deltaTime);
         }
-        if (ActionPoints <= 0)
+        if (ActionPoints <= 0 && gameObject.CompareTag(TagsEnum.Player))
         {
             EventManager.Instance.InvokeEvent(new InteractionEvents.EnableMovementModeEvent(false));
             EventManager.Instance.InvokeEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
@@ -83,7 +80,6 @@ public class Unit : MonoBehaviour
     public void RestoreActionPoints()
     {
         ActionPoints = baseActionPoints;
-        currentPath = null;
     }
 
     public void Move()

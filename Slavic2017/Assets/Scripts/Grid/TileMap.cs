@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using Enums;
 
 namespace Grid
 {
@@ -31,16 +33,22 @@ namespace Grid
             MapSizeY = GridController.GridRowsCount;
             tiles = GridController.Tiles;
 
-            // Setup the SelectedUnit's variable
-            SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
-            SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
-            SelectedUnit.GetComponent<Unit>().map = this;
+            SetupSelectedUnit();
 
             GeneratePathfindingGraph();
             GenerateMapVisual();
         }
 
-        private void OnDisable()
+        public void SetupSelectedUnit()
+        {
+            // Setup the SelectedUnit's variable
+            //SelectedUnit.GetComponent<Unit>().currentPath = null;
+            SelectedUnit.GetComponent<Unit>().tileX = Convert.ToInt32(SelectedUnit.transform.position.x);
+            SelectedUnit.GetComponent<Unit>().tileY = Convert.ToInt32(SelectedUnit.transform.position.z);
+            SelectedUnit.GetComponent<Unit>().map = this;
+        }
+
+        void OnDisable()
         {
             foreach (GameObject gameObject in instantiatedGrid)
             {
@@ -259,7 +267,11 @@ namespace Grid
             currentPath.Reverse();
 
             var unit = SelectedUnit.GetComponent<Unit>();
-            //unit.currentPath = currentPath;
+            if (unit.gameObject.CompareTag(TagsEnum.Enemy))
+            {
+                unit.currentPath = currentPath;
+                return;
+            }
             unit.currentPath = unit.ActionPoints + .1f < CalculateTotalPathCost(currentPath) ? null : currentPath;
         }
 
