@@ -18,10 +18,12 @@ public class Unit : MonoBehaviour
     public int ActionPoints = 4;
     private int baseActionPoints;
     private bool isMoving = false;
+    private Animator anim;
 
     void Start()
     {
         baseActionPoints = ActionPoints;
+        anim = GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -47,10 +49,11 @@ public class Unit : MonoBehaviour
         if (currentPath == null || ActionPoints <= 0)
         {
             isMoving = false;
+            anim.SetBool("isWalking", false);
             ClickableTile.IsMovement = false;
             return;
         }
-
+        anim.SetBool("isWalking", true);
         transform.position = new Vector3(tileX, transform.position.y, tileY);
 
         // Get cost from current tile to next tile
