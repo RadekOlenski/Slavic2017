@@ -25,7 +25,7 @@ public class Unit : MonoBehaviour
         {
             // Have we moved our visible piece close enough to the target tile that we can
             // advance to the next step in our pathfinding?
-            if (Vector3.Distance(transform.position, new Vector3(tileX, transform.position.y, tileY)) < 0.01f)
+            if (Vector3.Distance(transform.position, new Vector3(tileX, transform.position.y, tileY)) < 0.1f)
                 MoveNextTile();
 
             // Smoothly animate towards the correct map tile.

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Enums;
 using Events;
 using Managers;
@@ -29,6 +30,12 @@ public class TurnController : MonoBehaviour
         {
             //RestoreActionPoints();
         }
+        if (isEnemyTurn)
+        {
+            if (enemies.Any(e => e.ActionPoints > 0)) return;
+            isEnemyTurn = false;
+            HandlePlayerTurn();
+        }
     }
 
     public void EndTurn()
@@ -42,6 +49,7 @@ public class TurnController : MonoBehaviour
         //{
         //    HandleEnemyTurn();
         //}
+        isEnemyTurn = true;
         HandleEnemyTurn();
     }
 
@@ -66,6 +74,6 @@ public class TurnController : MonoBehaviour
             map.GeneratePathTo((int)player.tileX, (int)player.tileY);
             enemy.Move();
         }
-        HandlePlayerTurn();
+        //HandlePlayerTurn();
     }
 }
