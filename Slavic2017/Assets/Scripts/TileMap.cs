@@ -13,8 +13,8 @@ public class TileMap : MonoBehaviour
     Node[,] graph;
 
 
-    int mapSizeX = 10;
-    int mapSizeY = 10;
+    public int mapSizeX = 15;
+    public int mapSizeY = 10;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class TileMap : MonoBehaviour
         // Initialize our map tiles to be grass
         for (x = 0; x < mapSizeX; x++)
         {
-            for (y = 0; y < mapSizeX; y++)
+            for (y = 0; y < mapSizeY; y++)
             {
                 tiles[x, y] = 0;
             }
@@ -94,7 +94,7 @@ public class TileMap : MonoBehaviour
         // Initialize a Node for each spot in the array
         for (int x = 0; x < mapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeX; y++)
+            for (int y = 0; y < mapSizeY; y++)
             {
                 graph[x, y] = new Node();
                 graph[x, y].x = x;
@@ -105,7 +105,7 @@ public class TileMap : MonoBehaviour
         // Now that all the nodes exist, calculate their neighbours
         for (int x = 0; x < mapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeX; y++)
+            for (int y = 0; y < mapSizeY; y++)
             {
 
                 // This is the 4-way connection version:
@@ -155,7 +155,7 @@ public class TileMap : MonoBehaviour
     {
         for (int x = 0; x < mapSizeX; x++)
         {
-            for (int y = 0; y < mapSizeX; y++)
+            for (int y = 0; y < mapSizeY; y++)
             {
                 TileType tt = tileTypes[tiles[x, y]];
                 GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, y, 0), Quaternion.identity);
