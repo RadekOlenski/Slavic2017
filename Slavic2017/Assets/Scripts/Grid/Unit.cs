@@ -49,11 +49,14 @@ public class Unit : MonoBehaviour
         if (currentPath == null || ActionPoints <= 0)
         {
             isMoving = false;
-            anim.SetBool("isWalking", false);
+            if (anim != null)
+            {
+                anim.SetBool("isWalking", false);
+            }
             ClickableTile.IsMovement = false;
             return;
         }
-        anim.SetBool("isWalking", true);
+
         transform.position = new Vector3(tileX, transform.position.y, tileY);
 
         // Get cost from current tile to next tile
@@ -87,6 +90,10 @@ public class Unit : MonoBehaviour
 
     public void Move()
     {
+        if (anim != null)
+        {
+            anim.SetBool("isWalking", true);
+        }
         isMoving = true;
     }
 }

@@ -1369,7 +1369,13 @@ Prefab:
       propertyPath: ViewRadius
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 95096802018195564, guid: 7a1631b44061c504e99ff66b37e8a1d6,
+        type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 95227752853977682, guid: 7a1631b44061c504e99ff66b37e8a1d6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7a1631b44061c504e99ff66b37e8a1d6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1805736145
