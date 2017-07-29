@@ -9,9 +9,9 @@ namespace Interactions
     public class InteractionModeController : MonoBehaviour
     {
         [SerializeField] private FlashlightModeController flashlightModeController;
+        [SerializeField] private MovementModeController movementModeController;
 
-        //[SerializeField]
-        //private MovementModeController movementModeController;
+        #region Properties
 
         [NonSerialized] private bool flashlightModeEnabled;
 
@@ -25,12 +25,25 @@ namespace Interactions
             }
         }
 
-        [NonSerialized] public bool MovementModeEnabled;
+        [NonSerialized] private bool movementModeEnabled;
+
+        public bool MovementModeEnabled
+        {
+            get { return flashlightModeEnabled; }
+            set
+            {
+                movementModeEnabled = value;
+                movementModeController.enabled = movementModeEnabled;
+            }
+        }
+
+        #endregion
 
         // Use this for initialization
         void Start()
         {
             EventManager.Instance.AddListener<InteractionEvents.EnableFlashlightModeEvent>(HandleFlashlightMode);
+            EventManager.Instance.AddListener<InteractionEvents.EnableMovementModeEvent>(HandleMovementMode);
         }
 
         // Update is called once per frame
@@ -39,6 +52,7 @@ namespace Interactions
             if (Input.GetMouseButtonDown((int) MouseButton.RightMouse))
             {
                 DisableInteractionModes();
+
             }
         }
 
@@ -47,6 +61,8 @@ namespace Interactions
         private void DisableInteractionModes()
         {
             FlashlightModeEnabled = false;
+            MovementModeEnabled = false;
+            Debug.Log("All modes disabled");
         }
 
         #endregion
@@ -56,6 +72,11 @@ namespace Interactions
         private void HandleFlashlightMode(InteractionEvents.EnableFlashlightModeEvent e)
         {
             FlashlightModeEnabled = e.FlashlightModeEnabled;
+        }
+
+        private void HandleMovementMode(InteractionEvents.EnableMovementModeEvent e)
+        {
+            MovementModeEnabled = e.MovementModeEnabled;
         }
 
         private void OnDestroy()

@@ -14,5 +14,16 @@ namespace Events
                 args = new List<object> {FlashlightModeEnabled};
             }
         }
+
+        public class EnableMovementModeEvent : GameEvent
+        {
+            public bool MovementModeEnabled { get; set; }
+
+            public EnableMovementModeEvent(bool movementModeEnabled)
+            {
+                MovementModeEnabled = movementModeEnabled;
+                args = new List<object> { MovementModeEnabled };
+            }
+        }
     }
 }

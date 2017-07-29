@@ -14,6 +14,8 @@ namespace Interactions
         private GameObject playerFOV;
         private GameObject flashlight;
 
+        public LayerMask MouseTargetLayer;
+
         // Use this for initialization
         private void Awake()
         {
@@ -22,24 +24,26 @@ namespace Interactions
             flashlight = GameObject.FindGameObjectWithTag(TagsEnum.Flashlight);
         }
 
+        private void Start()
+        {
+            Debug.Log("Flashlight mode enabled");
+        }
+
         // Update is called once per frame
         void Update()
         {
-            Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(playerFOV.transform.position);
-            Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-
-            playerFOV.transform.rotation = Quaternion.Euler(new Vector3(0f, -angle, 0f));
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit floorHit;
+            if (Physics.Raycast(camRay, out floorHit, 100f, MouseTargetLayer))
+            {
+                Vector3 playerToMouse = floorHit.point;
+                playerToMouse.y = player.transform.position.y;
+                playerFOV.transform.LookAt(playerToMouse, Vector3.up);
+            }
 
             if (!Input.GetMouseButtonDown((int) MouseButton.LeftMouse)) return;
             flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);
-            //flashlight.transform.rotation = playerFOV.transform.rotation;
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
-        }
-
-        float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-        {
-            return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
         }
 
         private void OnEnable()
