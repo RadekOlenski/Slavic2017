@@ -38,7 +38,7 @@ namespace Interactions
             if (Physics.Raycast(camRay, out floorHit, 100f, MouseTargetLayer))
             {
                 Vector3 playerToMouse = floorHit.point;
-                playerToMouse.y = player.transform.position.y;
+                playerToMouse.y = playerFOV.transform.position.y;
                 playerFOV.transform.LookAt(playerToMouse, Vector3.up);
             }
 
