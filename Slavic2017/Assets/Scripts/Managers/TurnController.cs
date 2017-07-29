@@ -32,9 +32,17 @@ public class TurnController : MonoBehaviour
         }
         if (isEnemyTurn)
         {
-            if (enemies.Any(e => e.ActionPoints > 0)) return;
-            isEnemyTurn = false;
-            HandlePlayerTurn();
+            if (enemies.Any(e => Mathf.Abs(e.tileX - player.tileX) < 0.3f && Mathf.Abs(e.tileY - player.tileY) < 0.3f))
+            {
+                isEnemyTurn = false;
+                EventManager.Instance.QueueEvent(new GameOverEvent(false));
+                return;
+            }
+            if (!enemies.Any(e => e.ActionPoints > 0))
+            {
+                isEnemyTurn = false;
+                HandlePlayerTurn();
+            }
         }
     }
 

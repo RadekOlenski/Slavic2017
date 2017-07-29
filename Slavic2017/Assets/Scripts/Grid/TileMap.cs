@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Enums;
@@ -26,9 +27,9 @@ public class TileMap : MonoBehaviour
     public void SetupSelectedUnit()
     {
         // Setup the SelectedUnit's variable
-        SelectedUnit.GetComponent<Unit>().currentPath = null;
-        SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
-        SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
+        //SelectedUnit.GetComponent<Unit>().currentPath = null;
+        SelectedUnit.GetComponent<Unit>().tileX = Convert.ToInt32(SelectedUnit.transform.position.x);
+        SelectedUnit.GetComponent<Unit>().tileY = Convert.ToInt32(SelectedUnit.transform.position.z);
         SelectedUnit.GetComponent<Unit>().map = this;
     }
 
