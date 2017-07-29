@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerFOV
   - InteractionController
+  - Flashlight
   layers:
   - Default
   - TransparentFX

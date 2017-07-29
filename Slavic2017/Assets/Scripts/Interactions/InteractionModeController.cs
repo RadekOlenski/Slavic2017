@@ -60,7 +60,7 @@ namespace Interactions
 
         private void OnDestroy()
         {
-            EventManager.Instance.RemoveListener<InteractionEvents.EnableFlashlightModeEvent>(HandleFlashlightMode);
+            //EventManager.Instance.RemoveListener<InteractionEvents.EnableFlashlightModeEvent>(HandleFlashlightMode);
         }
 
         #endregion

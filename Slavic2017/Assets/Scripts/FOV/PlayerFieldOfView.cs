@@ -10,6 +10,8 @@ namespace FOV
         [SerializeField] private int edgeResolveIterations;
         [SerializeField] private MeshFilter viewMeshFilterBasic;
 
+        public bool DrawFOV;
+
         private Mesh viewMesh;
 
         #region Unity Methods
@@ -26,7 +28,14 @@ namespace FOV
 
         private void LateUpdate()
         {
-            DrawFieldOfView(viewMesh, ViewRadius, ViewAngle);
+            if (DrawFOV)
+            {
+                DrawFieldOfView(viewMesh, ViewRadius, ViewAngle);
+            }
+            else
+            {
+                RemoveFieldOfView();
+            }
         }
 
         private void OnDisable()
