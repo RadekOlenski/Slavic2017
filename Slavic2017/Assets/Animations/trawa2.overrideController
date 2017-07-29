@@ -1,0 +1,12 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: trawa2
+  m_Controller: {fileID: 9100000, guid: 9355829b378c34048bb27e2246d81dfd, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4aa8ef5dd90288d408817d9f9882a67f, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 62fafadcb5801d24496b46083d3c12ef, type: 3}

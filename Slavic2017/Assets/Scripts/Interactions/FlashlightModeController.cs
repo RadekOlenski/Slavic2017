@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using Enums;
 using Events;
 using FOV;
@@ -12,7 +14,7 @@ namespace Interactions
     {
         private GameObject player;
         private GameObject playerFOV;
-        private GameObject flashlight;
+        private List<GameObject> flashlights;
 
         public LayerMask MouseTargetLayer;
         public int FlashlightUseCost = 2;
@@ -22,7 +24,9 @@ namespace Interactions
         {
             player = GameObject.FindGameObjectWithTag(TagsEnum.Player);
             playerFOV = GameObject.FindGameObjectWithTag(TagsEnum.PlayerFOV);
-            flashlight = GameObject.FindGameObjectWithTag(TagsEnum.Flashlight);
+
+            flashlights = new List<GameObject>();
+            flashlights = GameObject.FindGameObjectsWithTag(TagsEnum.Flashlight).ToList();
         }
 
         private void Start()
@@ -43,7 +47,10 @@ namespace Interactions
             }
 
             if (!Input.GetMouseButtonDown((int) MouseButton.LeftMouse)) return;
-            flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);
+            foreach (GameObject flashlight in flashlights)
+            {
+                flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);
+            }
             player.GetComponent<Unit>().ActionPoints -= FlashlightUseCost;
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         }

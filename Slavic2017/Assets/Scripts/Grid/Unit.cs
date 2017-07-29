@@ -18,10 +18,16 @@ public class Unit : MonoBehaviour
     public int ActionPoints = 4;
     private int baseActionPoints;
     private bool isMoving = false;
+    private Animator anim;
 
     void Start()
     {
         baseActionPoints = ActionPoints;
+        anim = GetComponentInChildren<Animator>();
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
     }
     void Update()
     {
@@ -33,7 +39,13 @@ public class Unit : MonoBehaviour
                 MoveNextTile();
 
             // Smoothly animate towards the correct map tile.
-            transform.position = Vector3.Lerp(transform.position, new Vector3(tileX, transform.position.y, tileY), 5f * Time.deltaTime);
+            var target = new Vector3(tileX, transform.position.y, tileY);
+            transform.position = Vector3.MoveTowards(transform.position, target, 3f * Time.deltaTime);
+            Vector3 targetDir = target - transform.position;
+            float step = 5f * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            transform.rotation = Quaternion.LookRotation(newDir);
         }
         if (ActionPoints <= 0 && gameObject.CompareTag(TagsEnum.Player))
         {
@@ -47,6 +59,10 @@ public class Unit : MonoBehaviour
         if (currentPath == null || ActionPoints <= 0)
         {
             isMoving = false;
+            if (anim != null)
+            {
+                anim.SetBool("isWalking", false);
+            }
             ClickableTile.IsMovement = false;
             return;
         }
@@ -84,6 +100,10 @@ public class Unit : MonoBehaviour
 
     public void Move()
     {
+        if (anim != null)
+        {
+            anim.SetBool("isWalking", true);
+        }
         isMoving = true;
     }
 }
