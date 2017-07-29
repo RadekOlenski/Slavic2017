@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
 
     public int ActionPoints = 4;
     private int baseActionPoints;
+    private bool isMoving = false;
 
     void Start()
     {
@@ -24,64 +25,62 @@ public class Unit : MonoBehaviour
         {
             RestoreActionPoints();
         }
+        if (isMoving)
+        {
+            // Have we moved our visible piece close enough to the target tile that we can
+            // advance to the next step in our pathfinding?
+            if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(tileX, tileY)) < 0.1f)
+                MoveNextTile();
+
+            // Smoothly animate towards the correct map tile.
+            transform.position = Vector3.Lerp(transform.position, map.TileCoordToWorldCoord(tileX, tileY), 5f * Time.deltaTime);
+        }
+
     }
-    //void Update()
-    //{
-    //    if (currentPath != null)
-    //    {
-    //        int currNode = 0;
-
-    //        while (currNode < currentPath.Count - 1)
-    //        {
-
-    //            Vector3 start = map.TileCoordToWorldCoord(currentPath[currNode].x, currentPath[currNode].y) +
-    //                            new Vector3(0, .6f, 0f);
-    //            Vector3 end = map.TileCoordToWorldCoord(currentPath[currNode + 1].x, currentPath[currNode + 1].y) +
-    //                          new Vector3(0, .6f, 0f);
-
-    //            Debug.DrawLine(start, end, Color.red);
-
-    //            currNode++;
-    //        }
-
-    //    }
-    //}
 
     public void MoveNextTile()
     {
-        //float remainingMovement = ActionPoints;
-
-        while (ActionPoints > 0)
+        if (currentPath == null || ActionPoints <= 0)
         {
-            if (currentPath == null)
-                return;
-
-            // Get cost from current tile to next tile
-            ActionPoints -= (int)map.CostToEnterTile(currentPath[0].x, currentPath[0].y, currentPath[1].x, currentPath[1].y);
-
-            // Move us to the next tile in the sequence
-            tileX = currentPath[1].x;
-            tileY = currentPath[1].y;
-
-            transform.position = map.TileCoordToWorldCoord(tileX, tileY);   // Update our unity world position
-
-            // Remove the old "current" tile
-            currentPath.RemoveAt(0);
-
-            if (currentPath.Count == 1)
-            {
-                // We only have one tile left in the path, and that tile MUST be our ultimate
-                // destination -- and we are standing on it!
-                // So let's just clear our pathfinding info.
-                currentPath = null;
-            }
+            isMoving = false;
+            ClickableTile.IsMovement = false;
+            return;
         }
+
+        transform.position = map.TileCoordToWorldCoord(tileX, tileY);
+
+        // Get cost from current tile to next tile
+        ActionPoints -= (int)map.CostToEnterTile(currentPath[0].x, currentPath[0].y, currentPath[1].x, currentPath[1].y);
+
+        // Move us to the next tile in the sequence
+        tileX = currentPath[1].x;
+        tileY = currentPath[1].y;
+
+        //transform.position = map.TileCoordToWorldCoord(tileX, tileY);   // Update our unity world position
+
+        // Remove the old "current" tile
+        currentPath.RemoveAt(0);
+
+        if (currentPath.Count == 1)
+        {
+            // We only have one tile left in the path, and that tile MUST be our ultimate
+            // destination -- and we are standing on it!
+            // So let's just clear our pathfinding info.
+            currentPath = null;
+        }
+
         // reset path - no multi-turned movement
-        currentPath = null;
+        //currentPath = null;
     }
 
     public void RestoreActionPoints()
     {
         ActionPoints = baseActionPoints;
+        currentPath = null;
+    }
+
+    public void Move()
+    {
+        isMoving = true;
     }
 }

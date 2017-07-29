@@ -4,6 +4,7 @@ using Enums;
 
 public class ClickableTile : MonoBehaviour
 {
+    public static bool IsMovement;
     public int tileX;
     public int tileY;
     public TileMap map;
@@ -16,6 +17,7 @@ public class ClickableTile : MonoBehaviour
 
     void OnMouseEnter()
     {
+        if (IsMovement) return;
         Debug.Log(gameObject.name + " Enter!");
         map.GeneratePathTo(tileX, tileY);
     }
@@ -23,8 +25,8 @@ public class ClickableTile : MonoBehaviour
     void OnMouseUp()
     {
         Debug.Log("Click!");
-        //map.GeneratePathTo(tileX, tileY);
-        playerUnit.MoveNextTile();
+        IsMovement = true;
+        playerUnit.Move();
     }
 
 }
