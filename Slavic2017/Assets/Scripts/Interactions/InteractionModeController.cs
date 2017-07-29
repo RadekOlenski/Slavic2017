@@ -72,14 +72,16 @@ namespace Interactions
 
         private void HandleFlashlightMode(InteractionEvents.EnableFlashlightModeEvent e)
         {
-            if (PlayerUnit.ActionPoints <= 0 && e.FlashlightModeEnabled) return;
+            if (PlayerUnit.ActionPoints < flashlightModeController.FlashlightUseCost && e.FlashlightModeEnabled) return;
             FlashlightModeEnabled = e.FlashlightModeEnabled;
+            MovementModeEnabled = false;
         }
 
         private void HandleMovementMode(InteractionEvents.EnableMovementModeEvent e)
         {
             if (PlayerUnit.ActionPoints <= 0 && e.MovementModeEnabled) return;
             MovementModeEnabled = e.MovementModeEnabled;
+            FlashlightModeEnabled = false;
         }
 
         private void OnDestroy()

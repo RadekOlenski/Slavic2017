@@ -15,6 +15,7 @@ namespace Interactions
         private GameObject flashlight;
 
         public LayerMask MouseTargetLayer;
+        public int FlashlightUseCost = 2;
 
         // Use this for initialization
         private void Awake()
@@ -43,6 +44,7 @@ namespace Interactions
 
             if (!Input.GetMouseButtonDown((int) MouseButton.LeftMouse)) return;
             flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);
+            player.GetComponent<Unit>().ActionPoints -= FlashlightUseCost;
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         }
 
