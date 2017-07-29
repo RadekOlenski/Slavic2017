@@ -67,7 +67,7 @@ namespace Interactions
         private void DisableInteractionModes()
         {
             FlashlightModeEnabled = false;
-            MovementModeEnabled = false;
+            MovementModeEnabled = true;
             Debug.Log("All modes disabled");
         }
 
@@ -79,7 +79,7 @@ namespace Interactions
         {
             if (PlayerUnit.ActionPoints < flashlightModeController.FlashlightUseCost && e.FlashlightModeEnabled) return;
             FlashlightModeEnabled = e.FlashlightModeEnabled;
-            MovementModeEnabled = false;
+            MovementModeEnabled = !e.FlashlightModeEnabled;
         }
 
         private void HandleMovementMode(InteractionEvents.EnableMovementModeEvent e)

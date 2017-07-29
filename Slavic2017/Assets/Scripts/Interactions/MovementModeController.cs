@@ -20,12 +20,13 @@ namespace Interactions
 
         private void OnEnable()
         {
-            TileMap.enabled = true;
+            ClickableTile.IsEnabled = true;
         }
 
         private void OnDisable()
         {
-            TileMap.enabled = false;
+            //TileMap.enabled = false;
+            ClickableTile.IsEnabled = false;
         }
     }
 }

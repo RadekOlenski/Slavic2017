@@ -27,7 +27,7 @@ namespace Grid
             instantiatedGrid = new List<GameObject>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
             MapSizeX = GridController.GridColumnsCount;
             MapSizeY = GridController.GridRowsCount;
