@@ -12,7 +12,7 @@ public class ClickableTile : MonoBehaviour
 
     void Start()
     {
-        playerUnit = GameObject.FindGameObjectWithTag(TagsEnum.PlayerTag).GetComponent<Unit>();
+        playerUnit = GameObject.FindGameObjectWithTag(TagsEnum.Player).GetComponent<Unit>();
     }
 
     void OnMouseEnter()

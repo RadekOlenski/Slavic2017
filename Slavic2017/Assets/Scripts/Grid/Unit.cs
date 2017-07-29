@@ -29,11 +29,11 @@ public class Unit : MonoBehaviour
         {
             // Have we moved our visible piece close enough to the target tile that we can
             // advance to the next step in our pathfinding?
-            if (Vector3.Distance(transform.position, map.TileCoordToWorldCoord(tileX, tileY)) < 0.1f)
+            if (Vector3.Distance(transform.position, new Vector3(tileX, transform.position.y, tileY)) < 0.1f)
                 MoveNextTile();
 
             // Smoothly animate towards the correct map tile.
-            transform.position = Vector3.Lerp(transform.position, map.TileCoordToWorldCoord(tileX, tileY), 5f * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(tileX, transform.position.y, tileY), 5f * Time.deltaTime);
         }
 
     }
@@ -47,7 +47,7 @@ public class Unit : MonoBehaviour
             return;
         }
 
-        transform.position = map.TileCoordToWorldCoord(tileX, tileY);
+        transform.position = new Vector3(tileX, transform.position.y, tileY);
 
         // Get cost from current tile to next tile
         ActionPoints -= (int)map.CostToEnterTile(currentPath[0].x, currentPath[0].y, currentPath[1].x, currentPath[1].y);

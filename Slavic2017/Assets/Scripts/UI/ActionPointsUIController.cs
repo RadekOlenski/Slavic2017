@@ -12,7 +12,7 @@ public class ActionPointsUIController : MonoBehaviour
     void Start()
     {
         actionPointsText = GetComponent<Text>();
-        playerUnit = GameObject.FindGameObjectWithTag(TagsEnum.PlayerTag).GetComponent<Unit>();
+        playerUnit = GameObject.FindGameObjectWithTag(TagsEnum.Player).GetComponent<Unit>();
     }
 
     void Update()
