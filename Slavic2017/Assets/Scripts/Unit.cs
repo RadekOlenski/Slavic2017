@@ -12,6 +12,12 @@ public class Unit : MonoBehaviour
     public TileMap map;
 
     public int ActionPoints = 4;
+    private int baseActionPoints;
+
+    void Start()
+    {
+        baseActionPoints = ActionPoints;
+    }
 
     void Update()
     {
@@ -37,15 +43,15 @@ public class Unit : MonoBehaviour
 
     public void MoveNextTile()
     {
-        float remainingMovement = ActionPoints;
+        //float remainingMovement = ActionPoints;
 
-        while (remainingMovement > 0)
+        while (ActionPoints > 0)
         {
             if (currentPath == null)
                 return;
 
             // Get cost from current tile to next tile
-            remainingMovement -= map.CostToEnterTile(currentPath[0].x, currentPath[0].y, currentPath[1].x, currentPath[1].y);
+            ActionPoints -= (int)map.CostToEnterTile(currentPath[0].x, currentPath[0].y, currentPath[1].x, currentPath[1].y);
 
             // Move us to the next tile in the sequence
             tileX = currentPath[1].x;
@@ -66,5 +72,10 @@ public class Unit : MonoBehaviour
         }
         // reset path - no multi-turned movement
         currentPath = null;
+    }
+
+    public void RestoreActionPoints()
+    {
+        ActionPoints = baseActionPoints;
     }
 }
