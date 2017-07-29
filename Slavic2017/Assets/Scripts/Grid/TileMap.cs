@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Enums;
 
 public class TileMap : MonoBehaviour
 {
@@ -16,14 +17,19 @@ public class TileMap : MonoBehaviour
 
     void Start()
     {
-        // Setup the SelectedUnit's variable
-        SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
-        SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
-        SelectedUnit.GetComponent<Unit>().map = this;
-
+        SetupSelectedUnit();
         GenerateMapData();
         GeneratePathfindingGraph();
         GenerateMapVisual();
+    }
+
+    public void SetupSelectedUnit()
+    {
+        // Setup the SelectedUnit's variable
+        SelectedUnit.GetComponent<Unit>().currentPath = null;
+        SelectedUnit.GetComponent<Unit>().tileX = (int)SelectedUnit.transform.position.x;
+        SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
+        SelectedUnit.GetComponent<Unit>().map = this;
     }
 
     void GenerateMapData()
@@ -277,7 +283,11 @@ public class TileMap : MonoBehaviour
         currentPath.Reverse();
 
         var unit = SelectedUnit.GetComponent<Unit>();
-        //unit.currentPath = currentPath;
+        if (unit.gameObject.CompareTag(TagsEnum.Enemy))
+        {
+            unit.currentPath = currentPath;
+            return;
+        }
         unit.currentPath = unit.ActionPoints + .1f < CalculateTotalPathCost(currentPath) ? null : currentPath;
     }
 
