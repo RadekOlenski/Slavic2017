@@ -31,7 +31,7 @@ namespace Grid
         {
             MapSizeX = GridController.GridColumnsCount;
             MapSizeY = GridController.GridRowsCount;
-            tiles = GridController.Tiles;
+            tiles = GridController.TileTypes;
 
             SetupSelectedUnit();
 
@@ -167,6 +167,15 @@ namespace Grid
             // We could test the unit's walk/hover/fly type against various
             // terrain flags here to see if they are allowed to enter the tile.
 
+            tiles = GridController.TileTypes;
+            if (SelectedUnit.CompareTag(TagsEnum.Enemy))
+            {
+                if (!tileTypes[tiles[x, y]].isWalkable || tileTypes[tiles[x, y]].BlockMonsters)
+                {
+                    return false;
+                }
+            }
+
             return tileTypes[tiles[x, y]].isWalkable;
         }
 
@@ -247,6 +256,7 @@ namespace Grid
             if (prev[target] == null)
             {
                 // No route between our target and the source
+                SelectedUnit.GetComponent<Unit>().ActionPoints = 0;
                 return;
             }
 

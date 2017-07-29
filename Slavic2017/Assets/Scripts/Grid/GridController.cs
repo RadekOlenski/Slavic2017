@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Grid
 {
     public class GridController : MonoBehaviour
     {
-        public int[,] Tiles;
+        public int[,] TileTypes;
+        public List<Tile> Tiles;
 
         public int GridColumnsCount;
         public int GridRowsCount;
@@ -12,24 +14,26 @@ namespace Grid
         // Use this for initialization
         void Start ()
         {
+
+        }
+	
+        // Update is called once per frame
+        void Update () {
             GridColumnsCount = transform.childCount;
             GridRowsCount = transform.GetChild(0).childCount;
 
-            Tiles = new int[GridColumnsCount, GridRowsCount];
+            TileTypes = new int[GridColumnsCount, GridRowsCount];
+            Tiles = new List<Tile>();
 
             for (int i = 0; i < GridColumnsCount; i++)
             {
                 for (int j = 0; j < GridRowsCount; j++)
                 {
-                    GameObject tile = transform.GetChild(i).GetChild(j).gameObject;	          
-                    Tiles[i,j] = (int) tile.GetComponent<Tile>().TileType;
+                    GameObject tile = transform.GetChild(i).GetChild(j).gameObject;
+                    TileTypes[i, j] = (int)tile.GetComponent<Tile>().CurrentTileType;
+                    Tiles.Add(tile.GetComponent<Tile>());
                 }
-            }	
-        }
-	
-        // Update is called once per frame
-        void Update () {
-		
+            }
         }
     }
 }

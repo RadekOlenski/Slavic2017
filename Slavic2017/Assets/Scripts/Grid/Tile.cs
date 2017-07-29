@@ -5,6 +5,12 @@ namespace Grid
 {
     public class Tile : MonoBehaviour
     {
-        public TilesEnum TileType;
+        public TilesEnum BaseTileType;
+        public TilesEnum CurrentTileType;
+
+        private void Start()
+        {
+            CurrentTileType = BaseTileType;
+        }
     }
 }

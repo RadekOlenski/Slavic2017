@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Enums;
+using Grid;
 using UnityEngine;
 
 namespace FOV
@@ -11,6 +13,7 @@ namespace FOV
         [SerializeField] private MeshFilter viewMeshFilterBasic;
 
         public bool DrawFOV;
+        public GridController GridController;
 
         private Mesh viewMesh;
 
@@ -47,7 +50,18 @@ namespace FOV
 
         protected override void TakeActionOnVisibleObjects()
         {
-            //throw new System.NotImplementedException();
+            foreach (Tile tile in GridController.Tiles)
+            {
+                tile.CurrentTileType = tile.BaseTileType;
+            }
+
+            foreach (GameObject visibleObject in VisibleObjects)
+            {
+                if (visibleObject.layer == LayerMask.NameToLayer(LayersEnum.Grid))
+                {
+                    visibleObject.GetComponent<Tile>().CurrentTileType = TilesEnum.MonsterBlocked;
+                }
+            }
         }
 
         #region FOV Draw Methods

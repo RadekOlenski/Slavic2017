@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1732670569243156
 GameObject:
   m_ObjectHideFlags: 1
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1737597335300574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.764, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4491801088605582}
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732670569243156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.769, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4164109347625060}
@@ -240,7 +240,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 182.95
+  m_Intensity: 6.03
   m_Range: 12.7
   m_SpotAngle: 48
   m_CookieSize: 10
@@ -309,7 +309,7 @@ MonoBehaviour:
     m_Bits: 0
   TargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   coroutineDelay: 0.4
   ViewAngle: 60
   ViewRadius: 10
@@ -318,6 +318,7 @@ MonoBehaviour:
   edgeResolveIterations: 1
   viewMeshFilterBasic: {fileID: 33252574828089616}
   DrawFOV: 0
+  GridController: {fileID: 0}
 --- !u!136 &136228537201988916
 CapsuleCollider:
   m_ObjectHideFlags: 1

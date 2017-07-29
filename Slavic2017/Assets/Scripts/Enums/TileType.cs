@@ -9,6 +9,7 @@ public class TileType
     public GameObject tileVisualPrefab;
 
     public bool isWalkable = true;
+    public bool BlockMonsters = false;
     public float movementCost = 1;
 
 }

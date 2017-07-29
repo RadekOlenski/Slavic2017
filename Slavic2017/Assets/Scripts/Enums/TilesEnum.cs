@@ -5,6 +5,7 @@
         EasyTerrain,
         HeavyTerrain,
         Unwalkable,
-        Exit
+        Exit,
+        MonsterBlocked
     }
 }
