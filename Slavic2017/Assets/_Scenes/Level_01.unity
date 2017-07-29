@@ -468,7 +468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 915637259}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &301043019
 Light:
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 628119221}
   m_Layer: 12
   m_Name: FlashlightTop
-  m_TagString: Flashlight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1468,7 +1468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 915637259}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &628119221
 Light:
@@ -1754,7 +1754,7 @@ GameObject:
   - component: {fileID: 915637259}
   m_Layer: 0
   m_Name: Lights
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1771,11 +1771,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 301043018}
   - {fileID: 1849235780}
   - {fileID: 1141092568}
   - {fileID: 628119220}
   - {fileID: 2113943268}
+  - {fileID: 301043018}
   m_Father: {fileID: 1896456517}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 1141092569}
   m_Layer: 12
   m_Name: FlashlightSoft
-  m_TagString: Flashlight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1936,11 +1936,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141092567}
   m_LocalRotation: {x: 0.5218532, y: -0, z: -0, w: 0.85303533}
-  m_LocalPosition: {x: 0, y: 2.5400004, z: 0.5700001}
+  m_LocalPosition: {x: 0, y: 2.54, z: -0.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 915637259}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 62.913002, y: 0, z: 0}
 --- !u!108 &1141092569
 Light:
@@ -2560,7 +2560,7 @@ GameObject:
   - component: {fileID: 1849235781}
   m_Layer: 12
   m_Name: FlashlightHard
-  m_TagString: Flashlight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2573,11 +2573,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849235779}
   m_LocalRotation: {x: 0.5218532, y: -0, z: -0, w: 0.85303533}
-  m_LocalPosition: {x: 0, y: 1.4200001, z: 0.42}
+  m_LocalPosition: {x: 0, y: 1.42, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 915637259}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 62.913002, y: 0, z: 0}
 --- !u!108 &1849235781
 Light:
@@ -3184,10 +3184,10 @@ Transform:
   m_LocalRotation: {x: 0.000000014901152, y: 0.00000008940692, z: 0.00000008940692,
     w: 1}
   m_LocalPosition: {x: -0.018, y: 0.017, z: 0.338}
-  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 915637259}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &2113943269
 Light:

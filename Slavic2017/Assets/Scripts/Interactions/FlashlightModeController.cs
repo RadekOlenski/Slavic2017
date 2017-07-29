@@ -14,7 +14,7 @@ namespace Interactions
     {
         private GameObject player;
         private GameObject playerFOV;
-        private List<GameObject> flashlights;
+        private GameObject flashlight;
 
         public LayerMask MouseTargetLayer;
         public int FlashlightUseCost = 2;
@@ -24,9 +24,7 @@ namespace Interactions
         {
             player = GameObject.FindGameObjectWithTag(TagsEnum.Player);
             playerFOV = GameObject.FindGameObjectWithTag(TagsEnum.PlayerFOV);
-
-            flashlights = new List<GameObject>();
-            flashlights = GameObject.FindGameObjectsWithTag(TagsEnum.Flashlight).ToList();
+            flashlight = GameObject.FindGameObjectWithTag(TagsEnum.Flashlight);
         }
 
         private void Start()
@@ -47,10 +45,7 @@ namespace Interactions
             }
 
             if (!Input.GetMouseButtonDown((int) MouseButton.LeftMouse)) return;
-            foreach (GameObject flashlight in flashlights)
-            {
-                flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);
-            }
+            flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);         
             player.GetComponent<Unit>().ActionPoints -= FlashlightUseCost;
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         }
