@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1656262902420894}
+  m_IsPrefabParent: 1
+--- !u!1 &1656262902420894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4368931435874906}
+  - component: {fileID: 114788533262689110}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4368931435874906
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656262902420894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114788533262689110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656262902420894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa049619e577a444bcb8e755cbf1649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapSizeX: 15
+  MapSizeY: 10
+  SelectedUnit: {fileID: 0}
+  tileTypes:
+  - name: Grass
+    tileVisualPrefab: {fileID: 1230162586874052, guid: 5dd37adcd458d654f85d7dc2dcfff676,
+      type: 2}
+    isWalkable: 1
+    movementCost: 1
+  - name: Mud
+    tileVisualPrefab: {fileID: 1695459187263428, guid: f2bf2dd5210db3e43a3c7806aefdadb2,
+      type: 2}
+    isWalkable: 1
+    movementCost: 2
+  - name: Rock
+    tileVisualPrefab: {fileID: 1874997037337218, guid: 71c1a338f7f373e4cb620ab2eff1527a,
+      type: 2}
+    isWalkable: 0
+    movementCost: 1
