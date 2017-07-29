@@ -71,3 +71,8 @@ MonoBehaviour:
       type: 2}
     isWalkable: 0
     movementCost: 1
+  - name: Exit
+    tileVisualPrefab: {fileID: 1874997037337218, guid: 71c1a338f7f373e4cb620ab2eff1527a,
+      type: 2}
+    isWalkable: 1
+    movementCost: 1

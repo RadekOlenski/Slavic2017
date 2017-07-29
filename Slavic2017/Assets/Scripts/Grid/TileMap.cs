@@ -6,8 +6,8 @@ namespace Grid
 {
     public class TileMap : MonoBehaviour
     {
-        public int MapSizeX = 15;
-        public int MapSizeY = 10;
+        public int MapSizeX;
+        public int MapSizeY;
 
         public GridController GridController;
 
@@ -20,10 +20,13 @@ namespace Grid
 
         private List<GameObject> instantiatedGrid;
 
-        void Start()
+        private void Awake()
         {
             instantiatedGrid = new List<GameObject>();
+        }
 
+        private void OnEnable()
+        {
             MapSizeX = GridController.GridColumnsCount;
             MapSizeY = GridController.GridRowsCount;
             tiles = GridController.Tiles;
@@ -33,14 +36,6 @@ namespace Grid
             SelectedUnit.GetComponent<Unit>().tileY = (int)SelectedUnit.transform.position.z;
             SelectedUnit.GetComponent<Unit>().map = this;
 
-            //GenerateMapData();
-            GeneratePathfindingGraph();
-            GenerateMapVisual();
-        }
-
-        private void OnEnable()
-        {
-            //GenerateMapData();
             GeneratePathfindingGraph();
             GenerateMapVisual();
         }
@@ -53,48 +48,8 @@ namespace Grid
             }
         }
 
-        void GenerateMapData()
-        {
-            // Allocate our map tiles
-            tiles = new int[MapSizeX, MapSizeY];
-
-            int x, y;
-
-            // Initialize our map tiles to be grass
-            for (x = 0; x < MapSizeX; x++)
-            {
-                for (y = 0; y < MapSizeY; y++)
-                {
-                    tiles[x, y] = 0;
-                }
-            }
-
-            // Make a big swamp area
-            for (x = 3; x <= 5; x++)
-            {
-                for (y = 0; y < 4; y++)
-                {
-                    tiles[x, y] = 1;
-                }
-            }
-
-            // Let's make a u-shaped mountain range
-            tiles[4, 4] = 2;
-            tiles[5, 4] = 2;
-            tiles[6, 4] = 2;
-            tiles[7, 4] = 2;
-            tiles[8, 4] = 2;
-
-            tiles[4, 5] = 2;
-            tiles[4, 6] = 2;
-            tiles[8, 5] = 2;
-            tiles[8, 6] = 2;
-
-        }
-
         public float CostToEnterTile(int sourceX, int sourceY, int targetX, int targetY)
         {
-
             TileType tt = tileTypes[tiles[targetX, targetY]];
 
             if (UnitCanEnterTile(targetX, targetY) == false)
@@ -132,7 +87,6 @@ namespace Grid
             {
                 for (int y = 0; y < MapSizeY; y++)
                 {
-
                     // This is the 4-way connection version:
                     /*				if(x > 0)
                                     graph[x,y].neighbours.Add( graph[x-1, y] );
@@ -183,7 +137,8 @@ namespace Grid
                 for (int y = 0; y < MapSizeY; y++)
                 {
                     TileType tt = tileTypes[tiles[x, y]];
-                    GameObject go = (GameObject)Instantiate(tt.tileVisualPrefab, new Vector3(x, 0, y), Quaternion.identity);
+                    GameObject go =
+                        (GameObject) Instantiate(tt.tileVisualPrefab, new Vector3(x, 0, y), Quaternion.identity);
                     instantiatedGrid.Add(go);
 
                     ClickableTile ct = go.GetComponent<ClickableTile>();
@@ -201,7 +156,6 @@ namespace Grid
 
         public bool UnitCanEnterTile(int x, int y)
         {
-
             // We could test the unit's walk/hover/fly type against various
             // terrain flags here to see if they are allowed to enter the tile.
 
@@ -224,10 +178,10 @@ namespace Grid
 
             // Setup the "Q" -- the list of nodes we haven't checked yet.
             List<Node> unvisited = new List<Node>();
-        
-            Node source = graph[SelectedUnit.GetComponent<Unit>().tileX,SelectedUnit.GetComponent<Unit>().tileY];
 
-            Node target = graph[x,y];
+            Node source = graph[SelectedUnit.GetComponent<Unit>().tileX, SelectedUnit.GetComponent<Unit>().tileY];
+
+            Node target = graph[x, y];
 
             dist[source] = 0;
             prev[source] = null;
@@ -262,7 +216,7 @@ namespace Grid
 
                 if (u == target)
                 {
-                    break;  // Exit the while loop!
+                    break; // Exit the while loop!
                 }
 
                 unvisited.Remove(u);
@@ -314,7 +268,8 @@ namespace Grid
             float totalCost = 0;
             for (int i = 0; i < currentPath.Count - 1; i++)
             {
-                totalCost += CostToEnterTile(currentPath[i].x, currentPath[i].y, currentPath[i+1].x, currentPath[i+1].y);
+                totalCost += CostToEnterTile(currentPath[i].x, currentPath[i].y, currentPath[i + 1].x,
+                    currentPath[i + 1].y);
             }
             return totalCost;
         }
