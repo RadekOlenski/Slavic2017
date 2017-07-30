@@ -57,12 +57,12 @@ namespace Interactions
 
         private void OnEnable()
         {
-            playerFOV.GetComponent<PlayerFieldOfView>().DrawFOV = true;
+            //playerFOV.GetComponent<PlayerFieldOfView>().DrawFOV = true;
         }
 
         private void OnDisable()
         {
-            playerFOV.GetComponent<PlayerFieldOfView>().DrawFOV = false;
+            //playerFOV.GetComponent<PlayerFieldOfView>().DrawFOV = false;
         }
 
         public void RestoreRotation()
