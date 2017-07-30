@@ -49,6 +49,8 @@ namespace Interactions
             if (!Input.GetMouseButtonDown((int) MouseButton.LeftMouse)) return;
             flashlight.transform.DORotateQuaternion(playerFOV.transform.rotation, 1f);         
             player.GetComponent<Unit>().ActionPoints -= FlashlightUseCost;
+            //GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRendererController>().enabled = true;
+            //GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRenderer>().enabled = true;
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         }
 

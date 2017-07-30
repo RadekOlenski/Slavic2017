@@ -923,6 +923,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114664809934888766, guid: 0d59a95066464474d98d14dbc129125c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224855239265780784, guid: 0d59a95066464474d98d14dbc129125c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1027,6 +1032,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EndTurn
       objectReference: {fileID: 0}
+    - target: {fileID: 114664809934888766, guid: 0d59a95066464474d98d14dbc129125c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664809934888766, guid: 0d59a95066464474d98d14dbc129125c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664809934888766, guid: 0d59a95066464474d98d14dbc129125c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 851785562}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d59a95066464474d98d14dbc129125c, type: 2}
   m_IsPrefabParent: 0
@@ -1046,6 +1066,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdc0ae8e9698c748b0993d03e5ad383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &851785562 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1196386088233658, guid: 0d59a95066464474d98d14dbc129125c,
+    type: 2}
+  m_PrefabInternal: {fileID: 851785559}
 --- !u!114 &1063695328 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114788533262689110, guid: 6cfab066ea83c1b44a15eef5afa4eb9c,
@@ -1200,6 +1225,10 @@ Prefab:
     - target: {fileID: 4316546969617038, guid: cb04853642a2efa4a91ef256e344a996, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604418959617306, guid: cb04853642a2efa4a91ef256e344a996, type: 2}
+      propertyPath: m_TagString
+      value: PathLine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb04853642a2efa4a91ef256e344a996, type: 2}

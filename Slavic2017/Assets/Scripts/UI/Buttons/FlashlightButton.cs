@@ -8,11 +8,14 @@ namespace UI.Buttons
 {
     public class FlashlightButton : MonoBehaviour
     {
+        private LineRenderer lineRenderer;
+
         #region Unity Methods
 
         // Use this for initialization
         void Start()
         {
+            lineRenderer = GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRenderer>();
         }
 
         // Update is called once per frame
@@ -24,12 +27,27 @@ namespace UI.Buttons
             }
         }
 
+        //private void OnMouseOver()
+        //{
+        //    lineRenderer.enabled = false;
+        //    EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(false));
+        //}
+
+        //private void OnMouseExit()
+        //{
+        //    lineRenderer.enabled = true;
+        //    EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(true));
+        //}
+
         #endregion
 
         #region Click Methods
 
         public void EnableFlashlightMode()
         {
+            //GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRendererController>().enabled = false;
+            //lineRenderer.enabled = false;
+            //EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(false));
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(true));
         }
 

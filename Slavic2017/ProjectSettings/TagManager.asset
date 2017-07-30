@@ -8,6 +8,7 @@ TagManager:
   - InteractionController
   - Flashlight
   - Enemy
+  - PathLine
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@
         public static readonly string Enemy = "Enemy";
         public static readonly string PlayerFOV = "PlayerFOV";
         public static readonly string Flashlight = "Flashlight";
+        public static readonly string PathLine = "PathLine";
 
         public static readonly string InteractionController = "InteractionController";
     }
