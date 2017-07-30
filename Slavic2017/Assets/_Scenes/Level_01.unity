@@ -17300,10 +17300,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1270646385280164, guid: 7a1631b44061c504e99ff66b37e8a1d6, type: 2}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
+    - target: {fileID: 114729792448603116, guid: 7a1631b44061c504e99ff66b37e8a1d6,
+        type: 2}
+      propertyPath: GridController
+      value: 
+      objectReference: {fileID: 556656308}
     - target: {fileID: 114655435135556356, guid: 7a1631b44061c504e99ff66b37e8a1d6,
         type: 2}
       propertyPath: map
