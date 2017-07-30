@@ -14,6 +14,7 @@ namespace FOV
 
         public bool DrawFOV;
         public GridController GridController;
+        public Quaternion OriginalRotation;
 
         private Mesh viewMesh;
 

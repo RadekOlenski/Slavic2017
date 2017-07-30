@@ -184,6 +184,33 @@ namespace Grid
             // Clear out our unit's old path.
             SelectedUnit.GetComponent<Unit>().currentPath = null;
 
+            if (SelectedUnit.CompareTag(TagsEnum.Enemy))
+            {
+                TileType tt = null;
+                for (int i = 0; i < GridController.GridColumnsCount; i++)
+                {
+                    for (int j = 0; j < GridController.GridRowsCount; j++)
+                    {
+                        GameObject tile = GridController.transform.GetChild(i).GetChild(j).gameObject;
+                        if (Vector3.Distance(SelectedUnit.transform.position, tile.transform.position) < 0.1f)
+                        {
+                            tt = tileTypes[tiles[i, j]];
+                            break;
+                        }
+                    }
+                }
+
+                if (tt != null)
+                {
+                    if (tt.BlockMonsters)
+                    {
+                        SelectedUnit.GetComponent<Unit>().ActionPoints = 0;
+                        return;
+                    }
+
+                }
+            }
+
             if (UnitCanEnterTile(x, y) == false)
             {
                 // We probably clicked on a mountain or something, so just quit out.

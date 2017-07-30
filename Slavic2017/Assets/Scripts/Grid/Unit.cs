@@ -43,7 +43,10 @@ public class Unit : MonoBehaviour
             // Smoothly animate towards the correct map tile.
             var target = new Vector3(tileX, transform.position.y, tileY);
             transform.position = Vector3.MoveTowards(transform.position, target, 3f * Time.deltaTime);
-            RotationController.Rotate(target);
+            if (gameObject.CompareTag(TagsEnum.Player))
+            {
+                RotationController.Rotate(target);
+            }
         }
         if (ActionPoints <= 0 && gameObject.CompareTag(TagsEnum.Player))
         {

@@ -54,6 +54,7 @@ namespace Interactions
         {
             if (Input.GetMouseButtonDown((int) MouseButton.RightMouse))
             {
+                flashlightModeController.RestoreRotation();
                 DisableInteractionModes();
             }
             if (GameManager.Instance.CurrentGameState == GameState.GameOver)

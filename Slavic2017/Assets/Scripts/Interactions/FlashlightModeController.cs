@@ -25,6 +25,8 @@ namespace Interactions
             player = GameObject.FindGameObjectWithTag(TagsEnum.Player);
             playerFOV = GameObject.FindGameObjectWithTag(TagsEnum.PlayerFOV);
             flashlight = GameObject.FindGameObjectWithTag(TagsEnum.Flashlight);
+
+            playerFOV.GetComponent<PlayerFieldOfView>().OriginalRotation = playerFOV.transform.rotation;
         }
 
         private void Start()
@@ -58,6 +60,11 @@ namespace Interactions
         private void OnDisable()
         {
             playerFOV.GetComponent<PlayerFieldOfView>().DrawFOV = false;
+        }
+
+        public void RestoreRotation()
+        {
+            playerFOV.transform.rotation = playerFOV.GetComponent<PlayerFieldOfView>().OriginalRotation;
         }
     }
 }
