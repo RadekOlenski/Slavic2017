@@ -66,6 +66,7 @@ public class TurnController : MonoBehaviour
     {
         //EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         //EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(true));
+        //EventManager.Instance.QueueEvent(new InteractionEvents.SwitchTurnImageToPlayerEvent(true));
         player.RestoreActionPoints();
         map.SelectedUnit = player.gameObject;
         map.SetupSelectedUnit();
@@ -75,6 +76,7 @@ public class TurnController : MonoBehaviour
     {
         //EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(false));
         //EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(false));
+        //EventManager.Instance.QueueEvent(new InteractionEvents.SwitchTurnImageToPlayerEvent(false));
         foreach (var enemy in enemies)
         {
             enemy.RestoreActionPoints();

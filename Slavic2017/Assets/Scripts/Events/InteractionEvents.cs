@@ -25,5 +25,17 @@ namespace Events
                 args = new List<object> { MovementModeEnabled };
             }
         }
+
+        public class SwitchTurnImageToPlayerEvent : GameEvent
+        {
+            public bool IsPlayerTurn { get; set; }
+
+            public SwitchTurnImageToPlayerEvent(bool isPlayerTurn)
+            {
+                IsPlayerTurn = isPlayerTurn;
+                args = new List<object> { IsPlayerTurn };
+            }
+        }
+
     }
 }
