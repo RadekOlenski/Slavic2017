@@ -50,14 +50,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668880740622230}
-  m_LocalRotation: {x: -0.32342625, y: -0.6288049, z: -0.6288048, w: 0.32342622}
-  m_LocalPosition: {x: 9.96, y: 1.7973, z: 9.98}
+  m_LocalRotation: {x: 0.32782024, y: -0.6265254, z: -0.626525, w: -0.32782057}
+  m_LocalPosition: {x: 5.024, y: 2.85, z: 8.08}
   m_LocalScale: {x: 0.31902182, y: 0.31470415, z: 0.3958406}
   m_Children:
   - {fileID: 4484659406606656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -125.562004}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -235.23999}
 --- !u!4 &4484659406606656
 Transform:
   m_ObjectHideFlags: 1
@@ -122,8 +122,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 10.27
+  m_Range: 1.6
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -143,7 +143,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 6.38
   m_FalloffTable:
     m_Table[0]: 0
     m_Table[1]: 0
