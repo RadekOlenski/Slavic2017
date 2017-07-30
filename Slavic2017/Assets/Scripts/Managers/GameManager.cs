@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Enums;
 using Events;
+using UI.Panels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,7 +76,7 @@ namespace Managers
             LastLoadedLevel = new LoadedLevelInfo();
             LastLoadedLevel.SceneIndex = SceneManager.GetActiveScene().buildIndex;
             LastLoadedLevel.SceneName = SceneManager.GetActiveScene().name;
-
+            GameOverPanelController.IsWon = e.IsGameWon;
             eventManager.InvokeEvent(new ChangeGameStateEvent(GameState.GameOver));
 
             gameEnded = true;
