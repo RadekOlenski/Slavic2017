@@ -45,4 +45,10 @@ public class LineRendererController : MonoBehaviour
             line.enabled = false;
         }
     }
+
+    public void ClearLine()
+    {
+        playerUnit.currentPath = null;
+        line.enabled = false;
+    }
 }

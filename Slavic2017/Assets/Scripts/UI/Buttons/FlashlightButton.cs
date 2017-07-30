@@ -45,7 +45,7 @@ namespace UI.Buttons
 
         public void EnableFlashlightMode()
         {
-            //GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRendererController>().enabled = false;
+            GameObject.FindGameObjectWithTag(TagsEnum.PathLine).GetComponent<LineRendererController>().ClearLine();
             //lineRenderer.enabled = false;
             //EventManager.Instance.QueueEvent(new InteractionEvents.EnableMovementModeEvent(false));
             EventManager.Instance.QueueEvent(new InteractionEvents.EnableFlashlightModeEvent(true));
